@@ -2,7 +2,8 @@ const fs = require('fs-extra')
 const axios = require('axios')
 const puppeteer = require('puppeteer')
 
-const gist = 'rodgeraraujo/170ef2faf72e1a17439d8182ea3539ff'
+const gist = process.env.GIST_URL || 'rodgeraraujo/170ef2faf72e1a17439d8182ea3539ff';
+const gistVersion = process.env.GIST_VERSION || '';
 
 async function buildHTML() {
   await fs.remove('./dist')
@@ -14,7 +15,10 @@ async function buildHTML() {
     resume = JSON.parse(fs.readFileSync('./resume.json', 'utf-8'))
   } else {
     console.log(`Downloading resume... [${gist}]`)
-    const { data } = await axios.get(`https://gist.githubusercontent.com/${gist}/raw/resume.json`)
+    const version = gistVersion ? `${gistVersion}/` : ''
+    const { data } = await axios.get(
+      `https://gist.githubusercontent.com/${gist}/raw/${version}resume.json`
+    );
     resume = data
   }
   console.log('Rendering...')
