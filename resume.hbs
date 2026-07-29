@@ -131,29 +131,43 @@
                 <h4> <span class="title">Work Experience</span> </h4>
                 <ul class="list-unstyled">
                   {{#each resume.work}}
-                    <li class="card-nested relax">
+                    <li class="card-nested relax" style="margin-bottom: 2em;">
                       <div class="content has-sidebar">
-                        <p class="clear-margin-sm">
+                        <p class="clear-margin-sm" style="font-size: 1.15em;">
                           <strong>{{#if website}}<a href="{{website}}" target="_blank">{{company}}</a>{{else}}{{company}}{{/if}}</strong>
-                          <span class="text-muted" style="margin-left: 0.3em">{{position}}</span>
+                          <span class="text-muted" style="font-size: 0.85em; font-weight: normal; margin-left: 0.5em;">| {{location}}</span>
                         </p>
-                        <p class="text-muted">
-                          <small>
-                            <span class="space-right">
-                              {{startDate}} - {{#if endDate}}{{endDate}}{{else}}Present{{/if}} ({{duration}}) | {{location}}
-                            </span>
-                          </small>
-                        </p>
-                        <p>{{summary}}</p>
-                        {{#if highlights}}
-                          <ul class='highlight'>
-                            {{#each highlights}}
-                              <li> {{.}} </li>
-                            {{/each}}
-                          </ul>
-                        {{/if}}
-                      </div>
+                        
+                        <!-- Linha do tempo (Timeline) para os cargos -->
+                        <ul class="list-unstyled" style="border-left: 2px solid #d3d3d3; margin-left: 6px; padding-left: 20px; margin-top: 15px;">
+                          {{#each roles}}
+                            <li style="position: relative; margin-bottom: 20px;">
+                              <!-- Bolinha da timeline -->
+                              <span style="position: absolute; left: -27px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background-color: #888; border: 2px solid #fff;"></span>
+                              
+                              <p class="clear-margin-sm">
+                                <strong>{{position}}</strong>
+                              </p>
+                              <p class="text-muted" style="margin-bottom: 5px;">
+                                <small>
+                                  <span class="space-right">
+                                    {{startDate}} - {{#if endDate}}{{endDate}}{{else}}Present{{/if}} {{#if duration}}({{duration}}){{/if}}
+                                  </span>
+                                </small>
+                              </p>
+                              {{#if summary}}<p>{{summary}}</p>{{/if}}
+                              {{#if highlights}}
+                                <ul class='highlight'>
+                                  {{#each highlights}}
+                                    <li> {{.}} </li>
+                                  {{/each}}
+                                </ul>
+                              {{/if}}
+                            </li>
+                          {{/each}}
+                        </ul>
 
+                      </div>
                     </li>
                   {{/each}}
                 </ul>
