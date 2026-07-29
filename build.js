@@ -1,3 +1,5 @@
+console.log('Script started');
+
 const fs = require('fs-extra')
 const axios = require('axios')
 const puppeteer = require('puppeteer')
@@ -6,6 +8,7 @@ const gist = process.env.GIST_URL || 'rodgeraraujo/170ef2faf72e1a17439d8182ea353
 const gistVersion = process.env.GIST_VERSION || '';
 
 async function buildHTML() {
+  console.log('Building HTML...');
   await fs.remove('./dist')
   await fs.ensureDir('./dist')
 
@@ -25,15 +28,28 @@ async function buildHTML() {
   const html = await require("./index.js").render(resume)
   console.log('Saving file...')
   fs.writeFileSync('./dist/index.html', html, 'utf-8')
-  console.log('Done')
+  console.log('HTML successfully written to ./dist/index.html')
+  console.log('Done HTML')
   return html
 }
 
 async function buildPDF(html) {
-  const browser = await puppeteer.launch({ headless: true })
+  console.log('Launching puppeteer...');
+  const browser = await puppeteer.launch({ 
+    headless: "new", 
+    // Point directly to Chrome installed on macOS:
+    executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+    args: [
+      '--no-sandbox', 
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage'
+    ] 
+  })
+  
   const page = await browser.newPage();
   console.log('Opening puppeteer...')
-  await page.setContent(html, { waitUntil: 'networkidle0' })
+  await page.setContent(html, { waitUntil: 'networkidle2' })
+  
   console.log('Generating PDF...')
   const pdf = await page.pdf({
     format: 'A4', 
@@ -46,10 +62,11 @@ async function buildPDF(html) {
       right: '0.4in',
     }
   })
+  
   await browser.close()
   console.log('Saving file...')
   fs.writeFileSync('./dist/resume.pdf', pdf)
-  console.log('Done')
+  console.log('Done PDF')
   return pdf
 }
 
@@ -58,7 +75,8 @@ async function buildAll() {
   await buildPDF(html)
 }
 
+// THIS WAS MISSING AT THE BOTTOM OF YOUR FILE:
 buildAll().catch(e => {
-  console.error(e)
+  console.error('FATAL ERROR:', e)
   process.exit(1)
 })
