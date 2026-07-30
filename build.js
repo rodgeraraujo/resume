@@ -35,16 +35,23 @@ async function buildHTML() {
 
 async function buildPDF(html) {
   console.log('Launching puppeteer...');
-  const browser = await puppeteer.launch({ 
-    headless: "new", 
-    // Point directly to Chrome installed on macOS:
-    executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+  
+  const launchOptions = {
+    headless: "new",
     args: [
       '--no-sandbox', 
       '--disable-setuid-sandbox',
       '--disable-dev-shm-usage'
-    ] 
-  })
+    ]
+  };
+
+  // Only use the local macOS path if it exists on your machine (macOS)
+  const macChromePath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+  if (process.platform === 'darwin' && fs.existsSync(macChromePath)) {
+    launchOptions.executablePath = macChromePath;
+  }
+
+  const browser = await puppeteer.launch(launchOptions);
   
   const page = await browser.newPage();
   console.log('Opening puppeteer...')
@@ -75,7 +82,6 @@ async function buildAll() {
   await buildPDF(html)
 }
 
-// THIS WAS MISSING AT THE BOTTOM OF YOUR FILE:
 buildAll().catch(e => {
   console.error('FATAL ERROR:', e)
   process.exit(1)
