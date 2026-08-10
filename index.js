@@ -101,7 +101,48 @@ async function getRepoStars (url) {
   }
 }
 
-async function render(resume) {
+// ---- Section exclusion support ----
+// Maps a lowercase section key to a function that nulls it out on the resume object.
+const SECTION_REMOVERS = {
+  about: (r) => { if (r.basics) r.basics.summary = null },
+  work: (r) => { r.work = null },
+  skills: (r) => { r.skills = null },
+  education: (r) => { r.education = null },
+  projects: (r) => { r.projects = null },
+  publications: (r) => { r.publications = null },
+  awards: (r) => { r.awards = null },
+  volunteer: (r) => { r.volunteer = null },
+  interests: (r) => { r.interests = null },
+  references: (r) => { r.references = null },
+  languages: (r) => { r.languages = null },
+};
+
+// Removes the given section keys (array of strings) from the resume object in place.
+// Only called when the caller explicitly passes sections to exclude — render() itself
+// never decides this on its own, so callers control per-output-type behavior.
+function applyExcludedSections(resume, excludeSections) {
+  const excluded = (excludeSections || [])
+    .map((s) => String(s).trim().toLowerCase())
+    .filter(Boolean);
+
+  excluded.forEach((key) => {
+    const remover = SECTION_REMOVERS[key];
+    if (remover) {
+      remover(resume);
+    } else {
+      console.warn(`[resume] Unknown section to exclude: "${key}"`);
+    }
+  });
+
+  return excluded;
+}
+// ---- End section exclusion support ----
+
+// options.excludeSections: optional array of section keys to strip from this
+// particular render (e.g. only used for the PDF pass, not the HTML pass).
+async function render(resume, options) {
+  options = options || {};
+
   var css = fs.readFileSync(__dirname + '/assets/css/theme.css', 'utf-8'),
     template = fs.readFileSync(__dirname + '/resume.hbs', 'utf-8'),
     profiles = resume.basics.profiles,
@@ -111,6 +152,13 @@ async function render(resume) {
       "dribble", "dribbble", "facebook", "angellist",
       "bitbucket", "skype"],
     date_format = 'MMM YYYY';
+
+  if (options.excludeSections && options.excludeSections.length) {
+    const excludedSections = applyExcludedSections(resume, options.excludeSections);
+    if (excludedSections.length) {
+      console.log(`[resume] Excluding sections: ${excludedSections.join(', ')}`);
+    }
+  }
 
   if (!resume.basics.picture && hasEmail(resume)) {
     resume.basics.picture = gravatar.url(resume.basics.email.replace('(at)', '@'), {
@@ -201,9 +249,12 @@ async function render(resume) {
     }
   });
 
-  for (const project of resume.projects){
-    if (project.githubUrl)
-      project.stars = await getRepoStars(project.githubUrl)
+  // Guarded: resume.projects may be null if the "projects" section was excluded above.
+  if (resume.projects) {
+    for (const project of resume.projects) {
+      if (project.githubUrl)
+        project.stars = await getRepoStars(project.githubUrl)
+    }
   }
 
   Handlebars.registerHelper('toSocialIcon', function (text) {

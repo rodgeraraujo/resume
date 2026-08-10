@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "concurrently \"npx grunt watch\" \"node ./serve.js ./resume.json\"",
-    "build": "grunt less && node ./build.js"
+    "build": "grunt less && node ./build.js --exclude-pdf=projects,publications"
   },
   "dependencies": {
     "gravatar": "^1.8.1",

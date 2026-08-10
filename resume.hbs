@@ -77,11 +77,14 @@
         <div class="card-wrapper">
           <div class="card background-card">
 
+            {{#if resume.basics.summary}}
             <h4 id="about"><span class="title">About</span></h4>
             <div class="card-nested" itemprop="description">
               <p> {{breaklines resume.basics.summary}} </p>
             </div>
+            {{/if}}
 
+            {{#if resume.work}}
               <div id="work-experience">
                 <h4> <span class="title">Work Experience</span> </h4>
                 <ul class="list-unstyled">
@@ -127,7 +130,9 @@
                   {{/each}}
                 </ul>
               </div>
+            {{/if}}
 
+            {{#if resume.skills}}
             <h4 id="skills"><span class="title">Stacks</span> </h4>
             <div class="card-nested" itemprop="description">
               <div class="skill-table">
@@ -138,7 +143,9 @@
               </div>
             </div>
             <div class='px10'></div>
+            {{/if}}
 
+            {{#if resume.education}}
             <div id="education">
               <h4><span class="title">Education</span></h4>
               <ul class="list-unstyled">
@@ -164,6 +171,7 @@
                 {{/each}}
               </ul>
             </div>
+            {{/if}}
 
 
             {{#if resume.projects}}

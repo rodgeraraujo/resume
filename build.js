@@ -7,30 +7,69 @@ const puppeteer = require('puppeteer')
 const gist = process.env.GIST_URL || 'rodgeraraujo/170ef2faf72e1a17439d8182ea3539ff';
 const gistVersion = process.env.GIST_VERSION || '';
 
-async function buildHTML() {
-  console.log('Building HTML...');
-  await fs.remove('./dist')
-  await fs.ensureDir('./dist')
+// Sections to strip ONLY from the PDF (index.html always keeps everything).
+// Configure via:
+//   EXCLUDE_SECTIONS_PDF=projects,awards node build.js
+//   node build.js --exclude-pdf=projects,awards
+//   resume.json -> { "meta": { "excludeSectionsPdf": ["projects", "awards"] } }
+const excludeArg = process.argv.find(arg => arg.startsWith('--exclude-pdf='));
+if (excludeArg) {
+  const value = excludeArg.split('=')[1] || '';
+  process.env.EXCLUDE_SECTIONS_PDF = process.env.EXCLUDE_SECTIONS_PDF
+    ? `${process.env.EXCLUDE_SECTIONS_PDF},${value}`
+    : value;
+}
 
-  let resume
+function getPdfExcludeSections(resume) {
+  const fromEnv = (process.env.EXCLUDE_SECTIONS_PDF || '')
+    .split(',')
+    .map(s => s.trim())
+    .filter(Boolean);
+
+  const metaValue = resume.meta && resume.meta.excludeSectionsPdf;
+  const fromMeta = Array.isArray(metaValue)
+    ? metaValue
+    : (metaValue || '').toString().split(',').map(s => s.trim()).filter(Boolean);
+
+  return [...new Set([...fromEnv, ...fromMeta])];
+}
+
+async function loadResume() {
   if (fs.existsSync('./resume.json')) {
     console.log(`Loading from locale "resume.json"`)
-    resume = JSON.parse(fs.readFileSync('./resume.json', 'utf-8'))
-  } else {
-    console.log(`Downloading resume... [${gist}]`)
-    const version = gistVersion ? `${gistVersion}/` : ''
-    const { data } = await axios.get(
-      `https://gist.githubusercontent.com/${gist}/raw/${version}resume.json`
-    );
-    resume = data
+    return JSON.parse(fs.readFileSync('./resume.json', 'utf-8'))
   }
-  console.log('Rendering...')
-  const html = await require("./index.js").render(resume)
+
+  console.log(`Downloading resume... [${gist}]`)
+  const version = gistVersion ? `${gistVersion}/` : ''
+  const { data } = await axios.get(
+    `https://gist.githubusercontent.com/${gist}/raw/${version}resume.json`
+  );
+  return data
+}
+
+async function buildHTML(resume) {
+  console.log('Building HTML (all sections)...');
+  // render() mutates its input (formats dates, etc.), so give it its own clone
+  // to keep this pass fully independent from the PDF pass below.
+  const resumeForHtml = JSON.parse(JSON.stringify(resume))
+  const html = await require("./index.js").render(resumeForHtml)
   console.log('Saving file...')
   fs.writeFileSync('./dist/index.html', html, 'utf-8')
   console.log('HTML successfully written to ./dist/index.html')
   console.log('Done HTML')
   return html
+}
+
+async function buildPdfHtml(resume) {
+  const excludeSections = getPdfExcludeSections(resume)
+  if (excludeSections.length) {
+    console.log(`Building HTML for PDF (excluding: ${excludeSections.join(', ')})...`);
+  } else {
+    console.log('Building HTML for PDF (no sections excluded)...');
+  }
+  const resumeForPdf = JSON.parse(JSON.stringify(resume))
+  return require("./index.js").render(resumeForPdf, { excludeSections })
 }
 
 async function buildPDF(html) {
@@ -78,8 +117,14 @@ async function buildPDF(html) {
 }
 
 async function buildAll() {
-  const html = await buildHTML()
-  await buildPDF(html)
+  await fs.remove('./dist')
+  await fs.ensureDir('./dist')
+
+  const resume = await loadResume()
+
+  await buildHTML(resume)          // full resume -> dist/index.html
+  const pdfHtml = await buildPdfHtml(resume) // trimmed resume -> used only for PDF render
+  await buildPDF(pdfHtml)          // -> dist/resume.pdf
 }
 
 buildAll().catch(e => {
