@@ -2,16 +2,12 @@ console.log('Script started');
 
 const fs = require('fs-extra')
 const axios = require('axios')
-const puppeteer = require('puppeteer')
+const puppeteer = require('puppeteer-core')
+const chromium = require('@sparticuz/chromium')
 
 const gist = process.env.GIST_URL || 'rodgeraraujo/170ef2faf72e1a17439d8182ea3539ff';
 const gistVersion = process.env.GIST_VERSION || '';
 
-// Sections to strip ONLY from the PDF (index.html always keeps everything).
-// Configure via:
-//   EXCLUDE_SECTIONS_PDF=projects,awards node build.js
-//   node build.js --exclude-pdf=projects,awards
-//   resume.json -> { "meta": { "excludeSectionsPdf": ["projects", "awards"] } }
 const excludeArg = process.argv.find(arg => arg.startsWith('--exclude-pdf='));
 if (excludeArg) {
   const value = excludeArg.split('=')[1] || '';
@@ -31,7 +27,7 @@ function getPdfExcludeSections(resume) {
     ? metaValue
     : (metaValue || '').toString().split(',').map(s => s.trim()).filter(Boolean);
 
-  return [...new Set([...fromEnv, ...fromMeta])];
+  return [...new Set([...fromEnv, ...fromMeta])]
 }
 
 async function loadResume() {
@@ -50,8 +46,6 @@ async function loadResume() {
 
 async function buildHTML(resume) {
   console.log('Building HTML (all sections)...');
-  // render() mutates its input (formats dates, etc.), so give it its own clone
-  // to keep this pass fully independent from the PDF pass below.
   const resumeForHtml = JSON.parse(JSON.stringify(resume))
   const html = await require("./index.js").render(resumeForHtml)
   console.log('Saving file...')
@@ -75,19 +69,32 @@ async function buildPdfHtml(resume) {
 async function buildPDF(html) {
   console.log('Launching puppeteer...');
   
-  const launchOptions = {
-    headless: "new",
-    args: [
-      '--no-sandbox', 
-      '--disable-setuid-sandbox',
-      '--disable-dev-shm-usage'
-    ]
-  };
+  let launchOptions;
 
-  // Only use the local macOS path if it exists on your machine (macOS)
-  const macChromePath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
-  if (process.platform === 'darwin' && fs.existsSync(macChromePath)) {
-    launchOptions.executablePath = macChromePath;
+  // Check if we are running on Vercel or a serverless environment
+  if (process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_VERSION) {
+    launchOptions = {
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
+      ignoreHTTPSErrors: true,
+    };
+  } else {
+    // Local development configuration (e.g., your Mac)
+    launchOptions = {
+      headless: true,
+      args: [
+        '--no-sandbox', 
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage'
+      ]
+    };
+
+    const macChromePath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+    if (process.platform === 'darwin' && fs.existsSync(macChromePath)) {
+      launchOptions.executablePath = macChromePath;
+    }
   }
 
   const browser = await puppeteer.launch(launchOptions);
@@ -102,10 +109,10 @@ async function buildPDF(html) {
     displayHeaderFooter: false, 
     printBackground: true,
     margin: {
-      top: '0.4in',
-      bottom: '0.4in',
-      left: '0.4in',
-      right: '0.4in',
+      top: '0.25in',
+      bottom: '0.25in',
+      left: '0.05in',
+      right: '0.05in',
     }
   })
   
@@ -122,9 +129,9 @@ async function buildAll() {
 
   const resume = await loadResume()
 
-  await buildHTML(resume)          // full resume -> dist/index.html
-  const pdfHtml = await buildPdfHtml(resume) // trimmed resume -> used only for PDF render
-  await buildPDF(pdfHtml)          // -> dist/resume.pdf
+  await buildHTML(resume)          
+  const pdfHtml = await buildPdfHtml(resume) 
+  await buildPDF(pdfHtml)          
 }
 
 buildAll().catch(e => {

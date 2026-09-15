@@ -92,6 +92,14 @@ a {
   line-height: 1.5;
 }
 
+.work-item {
+  margin-bottom: 2em;
+}
+
+.role-item {
+  margin-bottom: 20px;
+}
+
 .card {
   background: @card-bg;
   padding: 2em 3.5em;
@@ -151,6 +159,52 @@ a {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem 1rem;
+}
+
+.company-name {
+  font-size: 1.15em; 
+  position: relative; 
+  z-index: 2; 
+  background-color: #fff; 
+  padding-right: 10px; 
+  display: inline-block;
+}
+
+.list-unstyled .role-timeline { 
+  border-left: 2px solid #d3d3d3;
+  margin-left: 6px; 
+  padding-left: 20px; 
+  margin-top: 15px; 
+  position: relative;
+  z-index: 1;
+}
+
+.role-timeline .timeline-dot {
+  position: absolute; 
+  left: -27px; 
+  top: 4px; 
+  width: 12px; 
+  height: 12px; 
+  border-radius: 50%; 
+  background-color: #888; 
+  border: 2px solid #fff; 
+  display: inline-block;
+}
+
+/* ── Inter-job dotted timeline connector ── */
+.role-timeline::after {
+  content: '';
+  position: absolute;
+  left: -2px; /* Overlap exactly with the 2px solid border of ul */
+  top: 100%; /* Start exactly at the bottom of the ul */
+  width: 0;
+  height: 15em; /* Long enough to reach the next ul */
+  border-left: 2px dotted #d3d3d3;
+  z-index: -1;
+}
+/* Hide the dotted line after the very last job */
+.work-timeline-content--last .role-timeline::after {
+  display: none;
 }
 
 .print-only {

@@ -89,7 +89,7 @@
                 <h4> <span class="title">Work Experience</span> </h4>
                 <ul class="list-unstyled">
                   {{#each resume.work}}
-                    <li class="card-nested relax" style="margin-bottom: 2em;">
+                    <li class="card-nested relax work-item">
                       <div class="content has-sidebar work-timeline-content {{#if @last}}work-timeline-content--last{{/if}}">
                         <p class="clear-margin-sm company-name" style="font-size: 1.15em; position: relative; z-index: 2; background-color: #fff; padding-right: 10px; display: inline-block;">
                           <strong>{{#if website}}<a href="{{website}}" target="_blank">{{company}}</a>{{else}}{{company}}{{/if}}</strong>
@@ -97,11 +97,11 @@
                         </p>
                         
                         <!-- Linha do tempo (Timeline) para os cargos -->
-                        <ul class="list-unstyled role-timeline" style="border-left: 2px solid #d3d3d3; margin-left: 6px; padding-left: 20px; margin-top: 15px; position: relative; z-index: 1;">
+                        <ul class="list-unstyled role-timeline">
                           {{#each roles}}
-                            <li style="position: relative; margin-bottom: 20px;">
+                            <li class="role-item" style="position: relative;">
                               <!-- Bolinha da timeline -->
-                              <span style="position: absolute; left: -27px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background-color: #888; border: 2px solid #fff;"></span>
+                              <span class="timeline-dot"></span>
                               
                               <p class="clear-margin-sm">
                                 <strong>{{position}}</strong>

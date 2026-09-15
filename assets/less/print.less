@@ -1,12 +1,93 @@
 @media print {
+
+.company-name {
+  font-size: 1.15em; 
+  position: relative; 
+  z-index: 2; 
+  background-color: #fff; 
+  padding-right: 10px; 
+  display: inline-block;
+}
+
+.list-unstyled .role-timeline { 
+  border-left: 2px solid #d3d3d3;
+  margin-left: 6px; 
+  padding-left: 20px; 
+  margin-top: 8px; 
+  position: relative;
+  z-index: 1;
+}
+
+.role-timeline .timeline-dot {
+  position: absolute; 
+  left: -27px; 
+  top: 4px; 
+  width: 12px; 
+  height: 12px; 
+  border-radius: 50%; 
+  background-color: #888; 
+  border: 2px solid #fff; 
+  display: inline-block;
+}
+
+/* ── Inter-job dotted timeline connector ── */
+.role-timeline::after {
+  content: '';
+  position: absolute;
+  // left: -2px; /* Overlap exactly with the 2px solid border of ul */
+  top: 100%; /* Start exactly at the bottom of the ul */
+  width: 0;
+  height: 2em; /* Long enough to reach the next ul */
+  border-left: 2px dotted #d3d3d3;
+  z-index: -1;
+}
+/* Hide the dotted line after the very last job */
+.work-timeline-content--last .role-timeline::after {
+  display: none;
+}
+
   .name-and-profession .name {
-    margin-top: -2rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+  .name-and-profession .job {
+    margin-bottom: 0;
+    font-size: 1.2rem;
+    line-height: 1.1;
   }
   .page {
-    margin-top: -4rem;
+    margin-top: -10px;
   }
   .social-links {
-    margin-top: 0.5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .profile-pic {
+    display: none !important;
+  }
+  .contact-details .detail {
+    line-height: 1;
+    margin-bottom: 0;
+  }
+  .contact-details .detail .info {
+    font-size: 0.75em;
+  }
+  .role-item {
+    margin-bottom: 5px;
+  }
+  .content, p, li {
+    line-height: 1.25;
+  }
+  p {
+    margin-bottom: 0.2rem;
+  }
+  .work-item {
+    margin-bottom: 0.5em;
+  }
+  .px10 {
+    height: 0;
   }
   body {
     font-size: 10pt;
@@ -42,6 +123,8 @@
   }
   .profile-card {
     text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
   .print-only {
     display: inherit;
@@ -64,15 +147,27 @@
     padding: 0.1rem 0 0.1rem 1rem;
 
     &.relax {
-      padding-top: 1rem;
-      padding-bottom: 1rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
     }
   }
   .skill-table {
     grid-gap: 0.8rem 0.5rem;
   }
+  .card-wrapper {
+    padding: 0;
+    margin: 0;
+  }
+  section.row {
+    margin: 0;
+    padding: 0;
+  }
+  .background-card h4 {
+    margin-top: 0.2em;
+    margin-bottom: 0.1em;
+  }
   .background-card h4:not(:first-child) {
-    margin-top: 1em;
+    margin-top: 0.5em;
   }
   #work-projects-group {
     display: grid;
