@@ -124,14 +124,21 @@ async function buildPDF(html) {
 }
 
 async function buildAll() {
-  await fs.remove('./dist')
+  const isVercel = !!(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_VERSION);
+
   await fs.ensureDir('./dist')
 
   const resume = await loadResume()
 
-  await buildHTML(resume)          
-  const pdfHtml = await buildPdfHtml(resume) 
-  await buildPDF(pdfHtml)          
+  await buildHTML(resume)
+
+  if (isVercel) {
+    console.log('Vercel environment detected — skipping PDF generation.');
+    console.log('Pre-built resume.pdf will be served from the committed dist/ folder.');
+  } else {
+    const pdfHtml = await buildPdfHtml(resume)
+    await buildPDF(pdfHtml)
+  }
 }
 
 buildAll().catch(e => {
