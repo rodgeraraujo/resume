@@ -77,7 +77,7 @@ async function buildPDF(html) {
       args: chromium.args,
       defaultViewport: chromium.defaultViewport,
       executablePath: await chromium.executablePath(),
-      headless: chromium.headless,
+      headless: 'shell',
       ignoreHTTPSErrors: true,
     };
   } else {
