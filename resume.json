@@ -134,9 +134,9 @@
           "startDate": "2024-03-01",
           "summary": "Leading feature development across mobile, web, and backend platforms for a leading Brazilian sportsbook and iGaming company serving 2M+ customers.",
           "highlights": [
-            "Designed and delivered end-to-end features across mobile, web, and backend platforms, owning technical decisions from architecture to production rollout.",
+            "Architected and delivered end-to-end features across mobile, web, and backend platforms, owning technical decisions from architecture to production rollout.",
             "Built and evolved scalable services and user-facing applications supporting millions of customers, focusing on reliability, performance, and developer experience.",
-            "Designed technical solutions and RFCs for internal platforms, including authentication, authorization, auditability, and operational tooling.",
+            "Designed 8+ technical RFCs and solutions adopted across internal platforms for authentication, authorization, auditability, and operational tooling.",
             "Implemented observability and experimentation practices using Datadog, Statsig, Mixpanel, and AppsFlyer to improve product decisions and operational visibility."
           ]
         },
@@ -147,7 +147,7 @@
           "endDate": "2024-02-29",
           "summary": "Gained deep expertise across app and web environments, operating within a fast-paced startup ecosystem.",
           "highlights": [
-            "Delivered new features across all platforms that significantly increased user activation, partnering closely with UX on design reviews.",
+            "Delivered new features across all platforms that increased new-user activation by ~15%, partnering closely with UX on design reviews.",
             "Developed strong cross-platform expertise spanning mobile app and web development."
           ]
         },
@@ -159,7 +159,7 @@
           "summary": "Joined the startup at an early stage, building scalable software and driving website structuring and technical SEO analysis.",
           "highlights": [
             "Built and maintained services on the main user Acquisition squad, handling thousands of daily users.",
-            "Designed, implemented, and deployed an internal tool for the 'Universo Pitaco' platform focused on content provisioning and SEO, using Angular Universal.",
+            "Built and deployed an internal tool for the 'Universo Pitaco' platform focused on content provisioning and SEO, using Angular Universal.",
             "Drove on-page optimization and technical SEO initiatives in collaboration with the development team and stakeholders.",
             "Improved acquisition website performance (http://reidopitaco.com.br).",
             "Built a scalable content platform (https://reidopitaco.com.br/universo-pitaco)."
@@ -179,7 +179,7 @@
           "endDate": "2022-12-30",
           "summary": "Worked in a global SAP engineering team building SaaS applications and cloud integrations using SAP BTP, Kubernetes, and modern JavaScript/TypeScript ecosystems.",
           "highlights": [
-            "Technologies: Github, Node.js, Javascript/Typescript, Jest, Karma, Git, CI/CD, Docker, Kubernetes, Kyma, SAP HanaDB, BTP, Jenkins, Fiori/UI5."
+            "Technologies: GitHub, Node.js, JavaScript/TypeScript, Jest, Karma, Git, CI/CD, Docker, Kubernetes, Kyma, SAP HANA, BTP, Jenkins, Fiori/UI5."
           ]
         }
       ]
@@ -195,7 +195,7 @@
           "endDate": "2022-02-11",
           "summary": "Built microservices and RESTful APIs for Nuveo's document and image intelligence products, including UltraOCR (https://ultraocr.com.br).",
           "highlights": [
-            "Technologies: Python, Golang, NodeJs, PostgreSQL, RabbitMQ, Redis, DynamoDB, Git, CI/CD, Docker, Kubernetes, Vue.js, Flask, Django, Nginx."
+            "Technologies: Python, Go, Node.js, PostgreSQL, RabbitMQ, Redis, DynamoDB, Git, CI/CD, Docker, Kubernetes, Vue.js, Flask, Django, Nginx."
           ]
         }
       ]
@@ -210,8 +210,8 @@
           "isCurrentRole": true,
           "startDate": "2019-01-01",
           "highlights": [
-            "Maintaining simple projects",
-            "Contribute to the Open Source community"
+            "Maintain open-source libraries (reddish, juno-api, minus.css) with 10k+ combined downloads across npm and crates.io.",
+            "Contribute to the open-source community through Rust, Node.js, and CSS utilities."
           ]
         }
       ]
@@ -228,7 +228,7 @@
           "endDate": "2021-05-15",
           "summary": "Built a web-based e-commerce checkout and dashboard system, owning both frontend (Vue.js) and backend (Node.js, PostgreSQL).",
           "highlights": [
-            "Technologies: GitHub, NodeJS, AdonisJS, NestJS, VueJS, TypeScript, MySQL, AWS, Heroku and Serverless."
+            "Technologies: GitHub, Node.js, AdonisJS, NestJS, Vue.js, TypeScript, MySQL, AWS, Heroku and Serverless."
           ]
         }
       ]

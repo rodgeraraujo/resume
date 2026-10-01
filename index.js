@@ -16,6 +16,52 @@ function getNetwork(profiles, network_name) {
   });
 }
 
+function parseResumeDate(value) {
+  if (!value) return null;
+  var parsed = moment(value, ['YYYY-MM-DD', 'YYYY-MM', 'YYYY'], true);
+  return parsed.isValid() ? parsed : null;
+}
+
+function formatResumeDate(entry, dateFormat) {
+  var start = parseResumeDate(entry.startDate);
+  var end = parseResumeDate(entry.endDate);
+
+  if (start) entry.startDate = start.format(dateFormat);
+  if (end) entry.endDate = end.format(dateFormat);
+}
+
+function applyCompanyTenure(workInfo) {
+  var roles = workInfo.roles || [];
+  var starts = [];
+  var ends = [];
+  var ongoing = false;
+
+  _.each(roles, function (role) {
+    var start = parseResumeDate(role.startDate);
+    var end = parseResumeDate(role.endDate);
+
+    if (start) starts.push(start);
+    if (!end || role.isCurrentRole) ongoing = true;
+    else ends.push(end);
+  });
+
+  if (!starts.length) return;
+
+  var start = starts.reduce(function (earliest, current) {
+    return current.isBefore(earliest) ? current : earliest;
+  });
+  var end = ongoing || !ends.length
+    ? null
+    : ends.reduce(function (latest, current) {
+      return current.isAfter(latest) ? current : latest;
+    });
+
+  workInfo.duration = humanizeDuration(
+    moment.duration((end || moment()).diff(start)),
+    !!end
+  );
+}
+
 function humanizeDuration(moment_obj, did_leave_company) {
   var days,
     months = moment_obj.months(),
@@ -193,6 +239,13 @@ async function render(resume, options) {
         moment.duration(end_date.getTime() - start_date.getTime()),
         did_leave_company)
     }
+
+    applyCompanyTenure(work_info);
+
+    _.each(work_info.roles, function (role) {
+      formatResumeDate(role, date_format);
+      role.duration = work_info.duration;
+    });
   });
 
   _.each(resume.skills, function (skill_info) {

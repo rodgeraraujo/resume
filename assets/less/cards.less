@@ -30,13 +30,23 @@
 }
 
 .social-links {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .social-link {
-  padding: 0 0.6rem;
+  padding: 0;
   color: inherit;
   opacity: 0.7;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 
   &:hover,
   &:focus {
@@ -50,22 +60,19 @@
   &:last-child {
     padding-right: 0;
   }
+}
 
-  & > * {
-    vertical-align: middle;
-  }
+.social-link-text {
+  font-size: 0.85rem;
 }
 
 a {
   color: inherit;
   text-decoration: none;
 
-  &:not(.icon) {
-    border-bottom: 1px dashed #0005;
-  }
-  &:hover,
-  &:focus {
-    text-decoration: none;
+  &:not(.icon):hover,
+  &:not(.icon):focus {
+    text-decoration: underline;
   }
 }
 

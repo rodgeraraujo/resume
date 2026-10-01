@@ -62,7 +62,7 @@
                 {{#profiles}}
                   <a class="social-link icon" href="{{url}}" target="_blank">
                     <span class="iconify" data-icon="{{toSocialIcon network}}"></span>
-                    <!--<span class="social-link-text print-only">{{username}}</span>-->
+                    <span class="social-link-text">{{network}}</span>
                   </a>
                 {{/profiles}}
               </div>
@@ -78,7 +78,7 @@
           <div class="card background-card">
 
             {{#if resume.basics.summary}}
-            <h4 id="about"><span class="title">About</span></h4>
+            <h4 id="about"><span class="title">Summary</span></h4>
             <div class="card-nested" itemprop="description">
               <p> {{breaklines resume.basics.summary}} </p>
             </div>
@@ -133,7 +133,7 @@
             {{/if}}
 
             {{#if resume.skills}}
-            <h4 id="skills"><span class="title">Stacks</span> </h4>
+            <h4 id="skills"><span class="title">Skills</span> </h4>
             <div class="card-nested" itemprop="description">
               <div class="skill-table">
                 {{#each resume.skills}}
@@ -220,7 +220,7 @@
 
 
             {{#if resume.publications}}
-            <h4 id="publications"><span class="title">Talks</span> </h4>
+            <h4 id="publications"><span class="title">Publications</span> </h4>
             <ul class="list-unstyled">
               {{#each resume.publications}}
                 <li class="card-nested" style="margin-bottom: 0.5em">
