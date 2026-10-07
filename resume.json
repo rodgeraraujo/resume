@@ -4,7 +4,7 @@
     "picture": "https://raw.githubusercontent.com/rodgeraraujo/rodgeraraujo/refs/heads/master/assets/profile_2026.jpeg",
     "label": "Senior Software Engineer",
     "headline": "",
-    "summary": "Senior Software Engineer with 6+ years of experience designing and building scalable consumer products across mobile, web, and backend platforms. Currently working on sportsbook and iGaming systems serving 2M+ users at Pitaco (formerly Rei do Pitaco). Experienced in distributed systems, platform engineering, observability, experimentation, and technical decision-making, with a strong foundation in Flutter, React/Next.js, Rust, and Node.js. Passionate about solving complex technical problems and designing maintainable software.",
+    "summary": "with 6+ years of experience designing and building scalable consumer products across mobile, web, and backend platforms. Currently developing sportsbook and iGaming systems serving 2M+ users at Pitaco (formerly Rei do Pitaco). Experienced in distributed systems, platform engineering, SQL/NoSQL databases, observability, and experimentation. Technical foundation in TypeScript/JavaScript, Flutter, React/Next.js, Rust, and Node.js. Passionate about solving complex technical problems and designing maintainable software.",
     "website": "https://rogerioaraujo.dev",
     "projects_url": "https://github.com/rodgeraraujo?tab=repositories",
     "username": "rodgeraraujo",
@@ -30,7 +30,7 @@
   "skills": [
     {
       "keywords": [
-        "TypeScript",
+        "TypeScript/JavaScript",
         "Dart",
         "Rust",
         "Go",
@@ -41,10 +41,11 @@
     },
     {
       "keywords": [
-        "Flutter",
         "React",
         "Next.js",
-        "Vue"
+        "Vue.js",
+        "Flutter",
+        "Web & Mobile Architecture"
       ],
       "level": "Advanced",
       "name": "Frontend & Mobile"
@@ -53,26 +54,30 @@
       "keywords": [
         "Node.js",
         "PostgreSQL",
+        "MySQL",
+        "DynamoDB",
         "Redis",
-        "gRPC",
-        "BigQuery",
+        "Elasticsearch",
         "TimescaleDB",
-        "Elasticsearch"
+        "BigQuery",
+        "SQL & NoSQL"
       ],
       "level": "Advanced",
-      "name": "Backend"
+      "name": "Backend & Data"
     },
     {
       "keywords": [
+        "System Design",
         "Distributed Systems",
         "Microservices",
-        "Event-driven Architecture",
-        "System Design",
+        "Event-Driven Architecture",
         "REST",
-        "GraphQL"
+        "GraphQL",
+        "gRPC",
+        "API Design"
       ],
       "level": "Advanced",
-      "name": "Architecture"
+      "name": "Architecture & Distributed Systems"
     },
     {
       "keywords": [
@@ -80,27 +85,40 @@
         "Docker",
         "Kubernetes",
         "GitHub Actions",
-        "CI/CD"
+        "CI/CD",
+        "Infrastructure & Deployment Strategies"
       ],
-      "level": "Intermediate",
-      "name": "Cloud & DevOps"
+      "level": "Advanced",
+      "name": "Cloud, Infrastructure & DevOps"
     },
     {
       "keywords": [
         "Datadog",
-        "Statsig",
-        "Mixpanel",
-        "AppsFlyer"
+        "Monitoring & Alerting",
+        "Distributed Tracing",
+        "Performance Optimization",
+        "Incident Response"
       ],
       "level": "Advanced",
-      "name": "Observability & Experimentation"
+      "name": "Reliability & Observability"
+    },
+    {
+      "keywords": [
+        "Statsig",
+        "Mixpanel",
+        "AppsFlyer",
+        "A/B Testing",
+        "Product Analytics"
+      ],
+      "level": "Advanced",
+      "name": "Product & Experimentation"
     }
   ],
   "projects": [
     {
       "name": "minus.css",
       "displayName": "minus.css",
-      "summary": "A small and minimalistic css framework.",
+      "summary": "Minimalistic CSS framework for clean, lightweight web design.",
       "website": "minus.rogerioaraujo.dev",
       "githubUrl": "https://github.com/rodgeraraujo/minus.css",
       "primaryLanguage": "CSS"
@@ -108,7 +126,7 @@
     {
       "name": "reddish",
       "displayName": "Reddish",
-      "summary": "A Rust utility library, making easier by taking the hassle out of working.",
+      "summary": "Rust utility library published on crates.io for common programming tasks.",
       "website": "https://crates.io/crates/reddish",
       "githubUrl": "https://github.com/rodgeraraujo/reddish",
       "primaryLanguage": "Rust"
@@ -116,13 +134,30 @@
     {
       "name": "juno-api",
       "displayName": "Juno API",
-      "summary": "Plain lib that permits bindings for the Juno API.",
+      "summary": "Node.js client library for Juno payment gateway integration.",
       "website": "https://www.npmjs.com/package/juno-api",
       "githubUrl": "https://github.com/rodgeraraujo/juno-api",
       "primaryLanguage": "JavaScript"
     }
   ],
   "work": [
+    {
+      "company": "Draftea",
+      "website": "https://www.draftea.mx/",
+      "location": "Mexico City, Mexico (Remote)",
+      "roles": [
+        {
+          "position": "Software Engineer III",
+          "isCurrentRole": true,
+          "startDate": "2026-03-01",
+          "summary": "Working on the Sportsbook Checkout team, leading the architectural design and foundational development of an internal Backoffice platform. Defining core technical foundations, architecture, and scalable patterns to support internal operations and future product evolution.",
+          "highlights": [
+            "Draftea acquired Pitaco in March/2026.",
+            "Technologies: GoLang, Node.js, TypeScript, JavaScript, Vercel, WorkOS."
+          ]
+        }
+      ]
+    },
     {
       "company": "Pitaco (formerly Rei do Pitaco)",
       "website": "https://www.reidopitaco.com.br/",
@@ -132,12 +167,13 @@
           "position": "Software Engineer L4",
           "isCurrentRole": true,
           "startDate": "2024-03-01",
-          "summary": "Leading feature development across mobile, web, and backend platforms for a leading Brazilian sportsbook and iGaming company serving 2M+ customers.",
+          "summary": "Lead feature development across mobile (Flutter), web (React/Next.js), and backend (Node.js) platforms for a Brazilian sportsbook serving 2M+ customers.",
           "highlights": [
-            "Architected and delivered end-to-end features across mobile, web, and backend platforms, owning technical decisions from architecture to production rollout.",
-            "Built and evolved scalable services and user-facing applications supporting millions of customers, focusing on reliability, performance, and developer experience.",
-            "Designed 8+ technical RFCs and solutions adopted across internal platforms for authentication, authorization, auditability, and operational tooling.",
-            "Implemented observability and experimentation practices using Datadog, Statsig, Mixpanel, and AppsFlyer to improve product decisions and operational visibility."
+            "Architected and delivered end-to-end features across mobile, web, and backend platforms, steering technical decisions from design to production rollout.",
+            "Defined technical RFCs and led architectural decisions across web, mobile, and backend products, ensuring high-quality delivery within project timelines.",
+            "Implemented observability and experimentation infrastructure using Datadog, Statsig, Mixpanel, and AppsFlyer to support data-driven product decisions.",
+            "Mentored junior engineers, providing guidance, code reviews, and technical support to help them grow and improve their skills.",
+            "Technologies: TypeScript, JavaScript, Flutter, React, Next.js, Node.js, PostgreSQL, Firebase, Redis, Elasticsearch, TimescaleDB, Docker, Kubernetes, Datadog, Statsig, Mixpanel, AppsFlyer."
           ]
         },
         {
@@ -145,10 +181,9 @@
           "isCurrentRole": false,
           "startDate": "2023-01-01",
           "endDate": "2024-02-29",
-          "summary": "Gained deep expertise across app and web environments, operating within a fast-paced startup ecosystem.",
+          "summary": "Developed features across mobile and web platforms in a fast-paced startup environment.",
           "highlights": [
-            "Delivered new features across all platforms that increased new-user activation by ~15%, partnering closely with UX on design reviews.",
-            "Developed strong cross-platform expertise spanning mobile app and web development."
+            "Responsible for delivering cross-platform features which significantly increased new-user activation by ~15%, partnering with UX on design reviews and implementation."
           ]
         },
         {
@@ -156,13 +191,10 @@
           "isCurrentRole": false,
           "startDate": "2022-03-01",
           "endDate": "2023-02-28",
-          "summary": "Joined the startup at an early stage, building scalable software and driving website structuring and technical SEO analysis.",
+          "summary": "Joining a startup (Rei do Pitaco) at an early stage, built acquisition and SEO infrastructure, handling thousands of daily users.",
           "highlights": [
-            "Built and maintained services on the main user Acquisition squad, handling thousands of daily users.",
-            "Built and deployed an internal tool for the 'Universo Pitaco' platform focused on content provisioning and SEO, using Angular Universal.",
-            "Drove on-page optimization and technical SEO initiatives in collaboration with the development team and stakeholders.",
-            "Improved acquisition website performance (http://reidopitaco.com.br).",
-            "Built a scalable content platform (https://reidopitaco.com.br/universo-pitaco)."
+            "Developed and deployed Angular Universal-based internal tool for the 'Universo Pitaco' (http://reidopitaco.com.br/universo-pitaco) content platform with technical SEO optimization.",
+            "Maintained services on user Acquisition squad and improved website performance for http://reidopitaco.com.br."
           ]
         }
       ]
@@ -177,9 +209,9 @@
           "isCurrentRole": false,
           "startDate": "2022-06-01",
           "endDate": "2022-12-30",
-          "summary": "Worked in a global SAP engineering team building SaaS applications and cloud integrations using SAP BTP, Kubernetes, and modern JavaScript/TypeScript ecosystems.",
+          "summary": "Built SaaS applications and cloud integrations on SAP BTP in a global engineering team.",
           "highlights": [
-            "Technologies: GitHub, Node.js, JavaScript/TypeScript, Jest, Karma, Git, CI/CD, Docker, Kubernetes, Kyma, SAP HANA, BTP, Jenkins, Fiori/UI5."
+            "Technologies: Node.js, TypeScript, JavaScript, Jest, Karma, Docker, Kubernetes, Kyma, SAP HANA, BTP, Jenkins, Fiori/UI5."
           ]
         }
       ]
@@ -195,23 +227,7 @@
           "endDate": "2022-02-11",
           "summary": "Built microservices and RESTful APIs for Nuveo's document and image intelligence products, including UltraOCR (https://ultraocr.com.br).",
           "highlights": [
-            "Technologies: Python, Go, Node.js, PostgreSQL, RabbitMQ, Redis, DynamoDB, Git, CI/CD, Docker, Kubernetes, Vue.js, Flask, Django, Nginx."
-          ]
-        }
-      ]
-    },
-    {
-      "company": "Open Source",
-      "website": "https://github.com/rodgeraraujo",
-      "location": "Github",
-      "roles": [
-        {
-          "position": "OSS Developer",
-          "isCurrentRole": true,
-          "startDate": "2019-01-01",
-          "highlights": [
-            "Maintain open-source libraries (reddish, juno-api, minus.css) with 10k+ combined downloads across npm and crates.io.",
-            "Contribute to the open-source community through Rust, Node.js, and CSS utilities."
+            "Technologies: Python, Go, Node.js, PostgreSQL, RabbitMQ, Redis, DynamoDB, Docker, Kubernetes, Vue.js, Flask, Django, Nginx."
           ]
         }
       ]
@@ -226,9 +242,9 @@
           "isCurrentRole": false,
           "startDate": "2020-01-28",
           "endDate": "2021-05-15",
-          "summary": "Built a web-based e-commerce checkout and dashboard system, owning both frontend (Vue.js) and backend (Node.js, PostgreSQL).",
+          "summary": "Built e-commerce checkout, dashboard system, and Xekout Pay payment service.",
           "highlights": [
-            "Technologies: GitHub, Node.js, AdonisJS, NestJS, Vue.js, TypeScript, MySQL, AWS, Heroku and Serverless."
+            "Technologies: Vue.js, Node.js, AdonisJS, NestJS, TypeScript, PostgreSQL, MySQL, AWS, Heroku, Serverless."
           ]
         }
       ]
@@ -243,9 +259,9 @@
           "isCurrentRole": false,
           "startDate": "2019-07-01",
           "endDate": "2019-11-27",
-          "summary": "Built a school transport management system with Java.",
+          "summary": "Built school transport management system.",
           "highlights": [
-            "Technologies: Bitbucket, Spring Boot, Maven, and PostgreSQL."
+            "Technologies: Java, Spring Boot, Maven, PostgreSQL."
           ]
         }
       ]
@@ -260,8 +276,10 @@
           "isCurrentRole": false,
           "startDate": "2017-02-01",
           "endDate": "2018-01-01",
-          "summary": "Worked as a freelancer building static, landing page, and dynamic websites using PHP, HTML, CSS, and Vue.js.",
-          "highlights": []
+          "summary": "Built static, landing page, and dynamic websites for clients.",
+          "highlights": [
+            "Technologies: PHP, HTML, CSS, Vue.js."
+          ]
         }
       ]
     }

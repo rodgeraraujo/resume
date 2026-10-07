@@ -84,34 +84,6 @@
             </div>
             {{/if}}
 
-            {{#if resume.education}}
-            <div id="education">
-              <h4><span class="title">Education</span></h4>
-              <ul class="list-unstyled">
-                {{#each resume.education}}
-                  <li class="card-nested">
-                    <div class="content has-sidebar">
-                      <p class="clear-margin-sm">
-                        <strong>{{#if area}} {{area}}, {{/if}}{{studyType}}</strong>,&nbsp;
-                        {{institution}}
-                      </p>
-                      <p class="text-muted clear-margin-sm">
-                        <small>
-                          {{startDate}} - {{#if endDate}} {{endDate}} {{else}} Currently Pursuing {{/if}}
-                        </small>
-                      </p>
-                      <div>{{description}}</div>
-                      <i>{{gpa}}</i>
-                      <div class="space-top labels">
-                        {{#courses}} <span class="label label-keyword">{{.}}</span> {{/courses}}
-                      </div>
-                    </div>
-                  </li>
-                {{/each}}
-              </ul>
-            </div>
-            {{/if}}
-
             {{#if resume.work}}
               <div id="work-experience">
                 <h4> <span class="title">Work Experience</span> </h4>
@@ -158,6 +130,34 @@
                   {{/each}}
                 </ul>
               </div>
+            {{/if}}
+
+            {{#if resume.education}}
+            <div id="education">
+              <h4><span class="title">Education</span></h4>
+              <ul class="list-unstyled">
+                {{#each resume.education}}
+                  <li class="card-nested">
+                    <div class="content has-sidebar">
+                      <p class="clear-margin-sm">
+                        <strong>{{#if area}} {{area}}, {{/if}}{{studyType}}</strong>,&nbsp;
+                        {{institution}}
+                      </p>
+                      <p class="text-muted clear-margin-sm">
+                        <small>
+                          {{startDate}} - {{#if endDate}} {{endDate}} {{else}} Currently Pursuing {{/if}}
+                        </small>
+                      </p>
+                      <div>{{description}}</div>
+                      <i>{{gpa}}</i>
+                      <div class="space-top labels">
+                        {{#courses}} <span class="label label-keyword">{{.}}</span> {{/courses}}
+                      </div>
+                    </div>
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
             {{/if}}
 
             {{#if resume.skills}}

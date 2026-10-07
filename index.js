@@ -243,8 +243,22 @@ async function render(resume, options) {
     applyCompanyTenure(work_info);
 
     _.each(work_info.roles, function (role) {
+      // Calculate duration per role BEFORE formatting dates
+      var roleStart = parseResumeDate(role.startDate);
+      var roleEnd = parseResumeDate(role.endDate);
+      
+      if (roleStart) {
+        var effectiveEnd = roleEnd || (role.isCurrentRole ? moment() : null);
+        if (effectiveEnd) {
+          role.duration = humanizeDuration(
+            moment.duration(effectiveEnd.diff(roleStart)),
+            !!roleEnd
+          );
+        }
+      }
+      
+      // Now format the dates for display
       formatResumeDate(role, date_format);
-      role.duration = work_info.duration;
     });
   });
 
