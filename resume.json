@@ -209,8 +209,11 @@
           "isCurrentRole": false,
           "startDate": "2022-06-01",
           "endDate": "2022-12-30",
-          "summary": "Built SaaS applications and cloud integrations on SAP BTP in a global engineering team.",
+          "summary": "Worked in a global SAP engineering team, building SaaS applications and cloud integrations on SAP BTP.",
           "highlights": [
+            "Created and maintained SAP DRC (Document Compliance) SaaS application with external service integrations.",
+            "Acted as temporary Scrum Master, facilitating team ceremonies and sprint planning.",
+            "Implemented unit tests, end-to-end tests, and technical documentation for enterprise-grade software.",
             "Technologies: Node.js, TypeScript, JavaScript, Jest, Karma, Docker, Kubernetes, Kyma, SAP HANA, BTP, Jenkins, Fiori/UI5."
           ]
         }
@@ -225,9 +228,11 @@
           "position": "Software Engineer",
           "startDate": "2021-06-07",
           "endDate": "2022-02-11",
-          "summary": "Built microservices and RESTful APIs for Nuveo's document and image intelligence products, including UltraOCR (https://ultraocr.com.br).",
+          "summary": "Built microservices and RESTful APIs for document and image intelligence automation products, including UltraOCR (https://ultraocr.com.br).",
           "highlights": [
-            "Technologies: Python, Go, Node.js, PostgreSQL, RabbitMQ, Redis, DynamoDB, Docker, Kubernetes, Vue.js, Flask, Django, Nginx."
+            "Created and maintained microservices with queue and messaging system integrations (RabbitMQ).",
+            "Implemented unit tests, end-to-end tests, and technical documentation for reliable service delivery.",
+            "Technologies: Python, Go, Node.js, PostgreSQL, MySQL, RabbitMQ, Redis, DynamoDB, Docker, Kubernetes, Vue.js, Flask, Django, Nginx."
           ]
         }
       ]
@@ -242,8 +247,10 @@
           "isCurrentRole": false,
           "startDate": "2020-01-28",
           "endDate": "2021-05-15",
-          "summary": "Built e-commerce checkout, dashboard system, and Xekout Pay payment service.",
+          "summary": "Developed B2B e-commerce and payment platforms, building checkout experiences and internal dashboards for online stores, also implemented the Xekout Pay payment gateway.",
           "highlights": [
+            "Built and maintained transactional checkout flows for Shopify-integrated businesses.",
+            "Integrated multiple payment providers including Mercado Pago, PagSeguro, PicPay, Juno, and PIX.",
             "Technologies: Vue.js, Node.js, AdonisJS, NestJS, TypeScript, PostgreSQL, MySQL, AWS, Heroku, Serverless."
           ]
         }
