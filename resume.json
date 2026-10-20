@@ -150,6 +150,7 @@
           "position": "Software Engineer III",
           "isCurrentRole": true,
           "startDate": "2026-03-01",
+          "endDate": "2026-10-1",
           "summary": "Working on the Sportsbook Checkout team, leading the architectural design and foundational development of an internal Backoffice platform. Defining core technical foundations, architecture, and scalable patterns to support internal operations and future product evolution.",
           "highlights": [
             "Draftea acquired Pitaco in March/2026.",
@@ -164,20 +165,21 @@
       "location": "São Paulo, Brazil (Remote)",
       "roles": [
         {
-          "position": "Software Engineer L4",
+          "position": "Software Engineer III (L4)",
           "isCurrentRole": true,
           "startDate": "2024-03-01",
+          "endDate": "2026-10-1",
           "summary": "Lead feature development across mobile (Flutter), web (React/Next.js), and backend (Node.js) platforms for a Brazilian sportsbook serving 2M+ customers.",
           "highlights": [
-            "Architected and delivered end-to-end features across mobile, web, and backend platforms, steering technical decisions from design to production rollout.",
-            "Defined technical RFCs and led architectural decisions across web, mobile, and backend products, ensuring high-quality delivery within project timelines.",
-            "Implemented observability and experimentation infrastructure using Datadog, Statsig, Mixpanel, and AppsFlyer to support data-driven product decisions.",
-            "Mentored junior engineers, providing guidance, code reviews, and technical support to help them grow and improve their skills.",
+            "Architected and delivered end-to-end features across mobile, web, and backend, spanning KYC, authentication, access control, and real-time sportsbook experiences.",
+            "Defined technical RFCs and guided architectural decisions across platforms, balancing business requirements, scalability, maintainability, and delivery timelines.",
+            "Implemented observability, analytics, and experimentation solutions using Datadog, Statsig, Mixpanel, AppsFlyer, and Meta Conversions API to support performance monitoring, attribution, and data-driven product decisions.",
+            "Mentored junior engineers through technical guidance, code reviews, and knowledge sharing, while contributing to web performance improvements and internal operational tools.",
             "Technologies: TypeScript, JavaScript, Flutter, React, Next.js, Node.js, PostgreSQL, Firebase, Redis, Elasticsearch, TimescaleDB, Docker, Kubernetes, Datadog, Statsig, Mixpanel, AppsFlyer."
           ]
         },
         {
-          "position": "Software Engineer L3",
+          "position": "Software Engineer III (L3)",
           "isCurrentRole": false,
           "startDate": "2023-01-01",
           "endDate": "2024-02-29",
@@ -187,7 +189,7 @@
           ]
         },
         {
-          "position": "Software Engineer L2",
+          "position": "Software Engineer II (L2)",
           "isCurrentRole": false,
           "startDate": "2022-03-01",
           "endDate": "2023-02-28",
