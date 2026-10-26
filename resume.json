@@ -4,11 +4,16 @@
     "picture": "https://raw.githubusercontent.com/rodgeraraujo/rodgeraraujo/refs/heads/master/assets/profile_2026.jpeg",
     "label": "Senior Software Engineer",
     "headline": "",
-    "summary": "with 6+ years of experience designing and building scalable consumer products across mobile, web, and backend platforms. Currently developing sportsbook and iGaming systems serving 2M+ users at Pitaco (formerly Rei do Pitaco). Experienced in distributed systems, platform engineering, SQL/NoSQL databases, observability, and experimentation. Technical foundation in TypeScript/JavaScript, Flutter, React/Next.js, Rust, and Node.js. Passionate about solving complex technical problems and designing maintainable software.",
+    "summary": "Senior Full Stack Engineer with 6+ years of experience building and shipping production software across web, mobile, and backend systems. Product-minded engineer who takes features from problem definition and technical design through implementation, rollout, and production reliability. Experienced with TypeScript, React/Next.js, Node.js, Rust, Golang, relational databases, search, and distributed systems in fast-moving SaaS and startup environments. Uses AI coding tools such as Claude and Cursor to accelerate codebase exploration, planning, implementation, and review, with engineering judgment and testing to validate results.",
     "website": "https://rogerioaraujo.dev",
     "projects_url": "https://github.com/rodgeraraujo?tab=repositories",
     "username": "rodgeraraujo",
     "email": "rogerio.araujo@mail.com",
+    "location": {
+      "city": "Cajazeiras",
+      "region": "Paraíba",
+      "countryCode": "BR"
+    },
     "profiles": [
       {
         "network": "GitHub",
@@ -31,10 +36,10 @@
     {
       "keywords": [
         "TypeScript/JavaScript",
-        "Dart",
-        "Rust",
+        "Python",
         "Go",
-        "Python"
+        "Rust",
+        "Dart"
       ],
       "level": "Advanced",
       "name": "Languages"
@@ -43,9 +48,9 @@
       "keywords": [
         "React",
         "Next.js",
-        "Vue.js",
+        "Web & Mobile Architecture",
         "Flutter",
-        "Web & Mobile Architecture"
+        "Vue.js"
       ],
       "level": "Advanced",
       "name": "Frontend & Mobile"
@@ -54,11 +59,12 @@
       "keywords": [
         "Node.js",
         "PostgreSQL",
+        "SQL & Relational Data Modeling",
+        "Elasticsearch",
+        "Redis",
+        "TimescaleDB",
         "MySQL",
         "DynamoDB",
-        "Redis",
-        "Elasticsearch",
-        "TimescaleDB",
         "BigQuery",
         "SQL & NoSQL"
       ],
@@ -67,17 +73,29 @@
     },
     {
       "keywords": [
+        "End-to-End Feature Ownership",
         "System Design",
         "Distributed Systems",
-        "Microservices",
         "Event-Driven Architecture",
+        "Microservices",
+        "API Design",
         "REST",
         "GraphQL",
-        "gRPC",
-        "API Design"
+        "gRPC"
       ],
       "level": "Advanced",
       "name": "Architecture & Distributed Systems"
+    },
+    {
+      "name": "AI-Assisted Development",
+      "level": "Hands-on",
+      "keywords": [
+        "Claude",
+        "Cursor",
+        "AI-Assisted Coding",
+        "Structured Implementation Planning",
+        "AI Output Review & Validation"
+      ]
     },
     {
       "keywords": [
@@ -97,7 +115,8 @@
         "Monitoring & Alerting",
         "Distributed Tracing",
         "Performance Optimization",
-        "Incident Response"
+        "Incident Response",
+        "Testing & Code Review"
       ],
       "level": "Advanced",
       "name": "Reliability & Observability"
@@ -148,13 +167,15 @@
       "roles": [
         {
           "position": "Software Engineer III",
-          "isCurrentRole": true,
+          "isCurrentRole": false,
           "startDate": "2026-03-01",
           "endDate": "2026-10-1",
-          "summary": "Working on the Sportsbook Checkout team, leading the architectural design and foundational development of an internal Backoffice platform. Defining core technical foundations, architecture, and scalable patterns to support internal operations and future product evolution.",
+          "summary": "Owned architectural design and foundational development for an internal Backoffice platform supporting sportsbook operations, defining reusable patterns and core capabilities for future evolution.",
           "highlights": [
+            "Defined the platform foundation and architectural approach for an internal Backoffice, working across authentication, authorization, and access-control requirements.",
+            "Designed reusable integration patterns and service boundaries to support maintainability, secure access, and future operational workflows.",
             "Draftea acquired Pitaco in March/2026.",
-            "Technologies: GoLang, Node.js, TypeScript, JavaScript, Vercel, WorkOS."
+            "Technologies: TypeScript, JavaScript, Go, Node.js,  Vercel, WorkOS."
           ]
         }
       ]
@@ -165,38 +186,38 @@
       "location": "São Paulo, Brazil (Remote)",
       "roles": [
         {
-          "position": "Software Engineer III (L4)",
-          "isCurrentRole": true,
+          "position": "Software Engineer III",
+          "isCurrentRole": false,
           "startDate": "2024-03-01",
           "endDate": "2026-10-1",
-          "summary": "Lead feature development across mobile (Flutter), web (React/Next.js), and backend (Node.js) platforms for a Brazilian sportsbook serving 2M+ customers.",
+          "summary": "Owned end-to-end feature delivery across mobile (Flutter), web (React/Next.js), and backend (Rust) for a Brazilian sportsbook serving 2M+ customers.",
           "highlights": [
-            "Architected and delivered end-to-end features across mobile, web, and backend, spanning KYC, authentication, access control, and real-time sportsbook experiences.",
-            "Defined technical RFCs and guided architectural decisions across platforms, balancing business requirements, scalability, maintainability, and delivery timelines.",
-            "Implemented observability, analytics, and experimentation solutions using Datadog, Statsig, Mixpanel, AppsFlyer, and Meta Conversions API to support performance monitoring, attribution, and data-driven product decisions.",
-            "Mentored junior engineers through technical guidance, code reviews, and knowledge sharing, while contributing to web performance improvements and internal operational tools.",
-            "Technologies: TypeScript, JavaScript, Flutter, React, Next.js, Node.js, PostgreSQL, Firebase, Redis, Elasticsearch, TimescaleDB, Docker, Kubernetes, Datadog, Statsig, Mixpanel, AppsFlyer."
+            "Led features from technical discovery and design through implementation across web, mobile, and backend, including KYC, authentication, access control, and real-time sportsbook experiences.",
+            "Wrote and reviewed technical RFCs, shaping cross-platform architecture and balancing product needs, reliability, maintainability, and delivery speed.",
+            "Worked with PostgreSQL, Redis, Elasticsearch, and TimescaleDB across product and real-time use cases, alongside observability and performance monitoring.",
+            "Improved product decision-making through Datadog, Statsig, Mixpanel, AppsFlyer, and Meta Conversions API integrations for monitoring, experimentation, and attribution.",
+            "Mentored junior engineers through code reviews, technical guidance, and knowledge sharing; contributed to web performance and internal operational tools."
           ]
         },
         {
-          "position": "Software Engineer III (L3)",
+          "position": "Software Engineer III",
           "isCurrentRole": false,
           "startDate": "2023-01-01",
           "endDate": "2024-02-29",
-          "summary": "Developed features across mobile and web platforms in a fast-paced startup environment.",
+          "summary": "Delivered cross-platform product features in a fast-moving startup, collaborating with UX on design and implementation.",
           "highlights": [
-            "Responsible for delivering cross-platform features which significantly increased new-user activation by ~15%, partnering with UX on design reviews and implementation."
+            "Partnered with UX to deliver onboarding and activation improvements across web and mobile; the original resume records an approximately 15% increase in new-user activation."
           ]
         },
         {
-          "position": "Software Engineer II (L2)",
+          "position": "Software Engineer II",
           "isCurrentRole": false,
           "startDate": "2022-03-01",
           "endDate": "2023-02-28",
-          "summary": "Joining a startup (Rei do Pitaco) at an early stage, built acquisition and SEO infrastructure, handling thousands of daily users.",
+          "summary": "Built acquisition and technical SEO capabilities for Rei do Pitaco during an early stage of the startup, supporting thousands of daily users.",
           "highlights": [
-            "Developed and deployed Angular Universal-based internal tool for the 'Universo Pitaco' (http://reidopitaco.com.br/universo-pitaco) content platform with technical SEO optimization.",
-            "Maintained services on user Acquisition squad and improved website performance for http://reidopitaco.com.br."
+            "Built an Angular Universal-based internal tool for the Universo Pitaco content platform and implemented technical SEO improvements.",
+            "Maintained acquisition services and improved website performance to support organic discovery and user acquisition."
           ]
         }
       ]
@@ -211,11 +232,11 @@
           "isCurrentRole": false,
           "startDate": "2022-06-01",
           "endDate": "2022-12-30",
-          "summary": "Worked in a global SAP engineering team, building SaaS applications and cloud integrations on SAP BTP.",
+          "summary": "Contributed to SaaS applications and cloud integrations in a global engineering team, working on SAP BTP.",
           "highlights": [
-            "Created and maintained SAP DRC (Document Compliance) SaaS application with external service integrations.",
-            "Acted as temporary Scrum Master, facilitating team ceremonies and sprint planning.",
-            "Implemented unit tests, end-to-end tests, and technical documentation for enterprise-grade software.",
+            "Created and maintained the SAP DRC (Document Compliance) SaaS application and integrations with external services.",
+            "Facilitated sprint planning and team ceremonies as a temporary Scrum Master.",
+            "Implemented unit and end-to-end tests and maintained technical documentation.",
             "Technologies: Node.js, TypeScript, JavaScript, Jest, Karma, Docker, Kubernetes, Kyma, SAP HANA, BTP, Jenkins, Fiori/UI5."
           ]
         }
@@ -230,12 +251,13 @@
           "position": "Software Engineer",
           "startDate": "2021-06-07",
           "endDate": "2022-02-11",
-          "summary": "Built microservices and RESTful APIs for document and image intelligence automation products, including UltraOCR (https://ultraocr.com.br).",
+          "summary": "Built backend services and APIs for document- and image-intelligence automation products.",
           "highlights": [
-            "Created and maintained microservices with queue and messaging system integrations (RabbitMQ).",
-            "Implemented unit tests, end-to-end tests, and technical documentation for reliable service delivery.",
+            "Developed and maintained microservices and REST APIs, integrating RabbitMQ-based messaging into service workflows.",
+            "Worked across relational and NoSQL databases and containerized deployments, with unit tests, end-to-end tests, and technical documentation.",
             "Technologies: Python, Go, Node.js, PostgreSQL, MySQL, RabbitMQ, Redis, DynamoDB, Docker, Kubernetes, Vue.js, Flask, Django, Nginx."
-          ]
+          ],
+          "isCurrentRole": false
         }
       ]
     },
@@ -249,10 +271,10 @@
           "isCurrentRole": false,
           "startDate": "2020-01-28",
           "endDate": "2021-05-15",
-          "summary": "Developed B2B e-commerce and payment platforms, building checkout experiences and internal dashboards for online stores, also implemented the Xekout Pay payment gateway.",
+          "summary": "Built full-stack B2B e-commerce and payment products, including checkout flows, internal dashboards, and payment-gateway integrations.",
           "highlights": [
-            "Built and maintained transactional checkout flows for Shopify-integrated businesses.",
-            "Integrated multiple payment providers including Mercado Pago, PagSeguro, PicPay, Juno, and PIX.",
+            "Built and maintained transactional checkout experiences for Shopify-integrated businesses.",
+            "Integrated payment providers including Mercado Pago, PagSeguro, PicPay, Juno, and Pix.",
             "Technologies: Vue.js, Node.js, AdonisJS, NestJS, TypeScript, PostgreSQL, MySQL, AWS, Heroku, Serverless."
           ]
         }
